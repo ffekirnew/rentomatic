@@ -1,20 +1,20 @@
 from typing import List
-from uuid import uuid4
-from infrastructure.memory_repository import MemoryRepository
-from domain.room import Room
-from use_cases.rooms_use_case import RoomsUseCase
 
+from bson import ObjectId
+
+from domain.entities.room import Room
+from infrastructure.persistence.memory_repository import MemoryRepository
+from use_cases.dtos.room.create_room_dto import CreateRoomDto
+from use_cases.services.rooms_service import RoomsService
 
 if __name__ == "__main__":
     rooms: List[Room] = [
-        Room(uuid4(), 5, 15.0, 15.5, 15.5),
-        Room(uuid4(), 5, 15.0, 15.5, 15.5),
+        CreateRoomDto(5, 15.0, 15.5, 15.5),
+        CreateRoomDto(5, 15.0, 15.5, 15.5),
     ]
-    repo = MemoryRepository([])
-    rooms_service = RoomsUseCase(repo)
 
-    print(rooms_service.GetAll())
-    rooms_service.Add(rooms[0])
-    print(rooms_service.GetAll())
-    rooms_service.Add(rooms[1])
-    print(rooms_service.GetAll())
+    repo = MemoryRepository([])
+    rooms_service = RoomsService(repo)
+
+    print(rooms_service.get_all())
+    print(rooms_service.get(ObjectId("64d8b4f63da64a3bab4a66f5")))
