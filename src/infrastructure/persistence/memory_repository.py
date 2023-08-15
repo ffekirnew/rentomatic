@@ -8,7 +8,7 @@ from use_cases.dtos.room.create_room_dto import CreateRoomDto
 from use_cases.services.interfaces.room_repository_interface import \
     RoomRepositoryInterface
 
-conn_string = "mongodb+srv://ffekirnew:KA8VG3Id6rU242xE@cluster0.ybkwa1w.mongodb.net/expense_tracker"
+conn_string = ""
 
 
 class MemoryRepository(RoomRepositoryInterface):
