@@ -8,7 +8,7 @@ from use_cases.dtos.user.user_dto import UserDto
 from use_cases.services.interfaces.user_repository_interface import \
     UserRepositoyInterface
 
-conn_string = "mongodb+srv://ffekirnew:KA8VG3Id6rU242xE@cluster0.ybkwa1w.mongodb.net/expense_tracker"
+conn_string = ""
 
 
 class UserRepository(UserRepositoyInterface):
